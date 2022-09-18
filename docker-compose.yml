@@ -1,0 +1,30 @@
+version: "3.7"
+
+secrets:
+  MSSQL_SA_PWD:
+    file: .secrets/mssql_sa_pwd.txt #edit with your path if differnt from my guide
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql
+    restart: unless-stopped
+    user: root
+    environment:
+      MSSQL_SA_PASSWORD_FILE: /run/secrets/MSSQL_SA_PWD
+      ACCEPT_EULA: Y
+      MSSQL_PID: "Express"
+    ports:
+      - 1433:1433
+    secrets:
+      - MSSQL_SA_PWD
+    volumes:
+      - ./mssql-volume/data:/var/opt/mssql/data #edit with your path
+      - ./mssql-volume/log:/var/opt/mssql/log #edit with your path
+      - ./mssql-volume/secrets:/var/opt/mssql/secrets #edit with your path
+    networks:
+      - <Your_Network_Name> #edit with your network
+
+networks:
+  <Your_Network_Name>: #edit with your network
+    external: true
