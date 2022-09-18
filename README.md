@@ -6,6 +6,7 @@ The goal is to create a SQL Server container that saves data persistently and ea
 
 ## Start the containers
 - clone the repo https://github.com/manuel-cestaro-personal/MSSQL-Docker/archive/refs/heads/main.zip
+- `cd MSSQL-Docker`
 - `mkdir .secrets && cd .secrets`
 - `nano mssql_sa_pwd.txt` --> write the pwd of the SuperAdministrator (SA) user of mssql db
 - `cd ..`
