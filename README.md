@@ -1,4 +1,4 @@
-# MSSQL-Docker
+# Microsoft SQL Server with Docker
 Example of Microsoft SQL Server (MSSQL) with Docker container.
 
 ## Objective
